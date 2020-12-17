@@ -14,7 +14,7 @@ public class Bar {
 
 
     public static String getRandomBarName () {
-        return barName[(int) (5 * Math.random())];
+        return barName[(int) (barName.length * Math.random())];
     }
 
 
