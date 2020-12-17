@@ -5,8 +5,8 @@ public class TourGuide extends Student{
     private double tipSpended = 0;
 
 
-    public TourGuide(String firstName, String lastName, String dateOfBirth) {
-        super(firstName, lastName, dateOfBirth);
+    public TourGuide(String firstName, String lastName, int yearOfBirth) {
+        super(firstName, lastName, yearOfBirth);
     }
 
     private Student [] partyPeoples = new Student[5];
@@ -34,28 +34,54 @@ public class TourGuide extends Student{
     }
 
 
-    public void goToRandomBar() {
-        if (readyToGo) {
-            this.Bar = Bar.createRandomBar();
+    public void allGetADrink () {
+        for (int i = 0; i < partyPeoples.length; i++) {
+            if (partyPeoples[i] != null) {
+                partyPeoples[i].getRandomDrink();
+            }
         }
     }
 
 
+    public void goToRandomBar() {
+        this.Bar = Bar.createRandomBar();
+    }
+
+//    public void goToRandomBar() {
+//        boolean readyToGo = checkCrewReadyToGo();
+//        if (readyToGo) {
+//            Bar = Bar.createRandomBar();
+//        }
+//    }
+
+
+
+
 
     public void addStudentToCrew (Student s) {
-        boolean addedToTheCrew = false;
 
         for (int i = 0; i < partyPeoples.length; i++) {
             if (partyPeoples[i] == null) {
                 partyPeoples[i] = s;
-                addedToTheCrew = true;
                 System.out.println("\n" + s.getFirstName()+ " wurde erfolgreich zur Crew hinzugefügt!");
                 break;
             }
         }
+        if (checkCrewReadyToGo()) {
+            System.out.println("\nDas Team ist jetzt vollzählig.\nJetzt können wir endlich los!!!");
+        }
 
-        if (!addedToTheCrew) {
-            System.out.println("\nLeider ist deine Crew schon voll");
+
+    }
+
+
+    public void deleteStudent(String firstName, String lastName) {
+        for (int i = 0; i < partyPeoples.length; i++) {
+            Student student = partyPeoples[i];
+            if (student.equals(firstName) && student.getLastName().equals(lastName)) {
+                partyPeoples[i] = null;
+                break;
+            }
         }
     }
 
@@ -71,13 +97,15 @@ public class TourGuide extends Student{
     }
 
 
-
+    /**
+     * Methode organizeTeam
+     * macht eigentlich erst richtig Sinn wenn man Methode delete Studente hat
+     */
     public void organizeTeam () {
         Student s; // s ist hier ein Platzhalter vom Typ Student (wird zum sortieren benötigt)
 
         for (int j = 0; j < this.partyPeoples.length -1; j++) {
             for (int i = 0; i < this.partyPeoples.length - 1; i++) {
-
                 if (partyPeoples[i] == null) {
                     s = partyPeoples[i];
                     partyPeoples[i] = partyPeoples[i + 1];
