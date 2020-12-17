@@ -40,9 +40,56 @@ public class Student {
     }
 
 
-    public void goToRandomBar() {
-        this.Bar = Bar.createRandomBar();
+    public void printStudentData () {
+        System.out.println("Name " + firstName + " " + lastName +
+                "\nMomentaner Kassenschnitt: " + money +
+                "\nBetrunken: " + drunk + "\nBroke: " + broke);
     }
 
 
+
+    // Getters und Setters
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    public boolean isDrunk() {
+        return drunk;
+    }
+
+    public void setDrunk(boolean drunk) {
+        this.drunk = drunk;
+    }
+
+    public boolean isBroke() {
+        return broke;
+    }
+
+    public void setBroke(boolean broke) {
+        this.broke = broke;
+    }
+
+    public Bar getBar() {
+        return Bar;
+    }
+
+    public void setBar(Bar bar) {
+        Bar = bar;
+    }
 }
