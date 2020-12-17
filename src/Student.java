@@ -14,7 +14,7 @@ public class Student {
     // final Attribute nach instanziierung (in Main Methode) nicht mehr veränderbar
     private final String lastName;
     private final String firstName;
-    private final String dateOfBirth;
+    private final int yearOfBirth;
 
 
     // Veränderbare Attribute des Studenten
@@ -24,26 +24,36 @@ public class Student {
     private boolean broke = false;
 
     Bar Bar;
+    Drink Drink;
 
 
     // Konstrukor --> Vorlage zum Erzeugen von nem Objekt Student
-    public Student (String firstName, String lastName, String dateOfBirth) {
+    public Student (String firstName, String lastName, int yearOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.dateOfBirth = dateOfBirth;
+        this.yearOfBirth = yearOfBirth;
     }
 
 
     public void introduceYourself () {
         System.out.println("\nHallo ich bin " + firstName
-                + "\nFreut mich euch kennen zu lernnen");
+                + "\nFreut mich heute bei der Tour dabei zu sein");
     }
 
 
     public void printStudentData () {
-        System.out.println("Name " + firstName + " " + lastName +
+        System.out.println("\nName: " + firstName + " " + lastName +
                 "\nMomentaner Kassenschnitt: " + money +
                 "\nBetrunken: " + drunk + "\nBroke: " + broke);
+    }
+
+    public void getRandomDrink () {
+        Drink randomDrink = Drink.createRandomDrink();
+        //this.Drink = Drink.createRandomDrink();
+        this.money = money - randomDrink.getPrice();
+        System.out.println("\n" + this.getFirstName() + ": Cool jetzt gibt es was zu Trinken.\nDrink: " +
+                randomDrink.getName() +".\nPreis: " + randomDrink.getPrice() + "€" +
+                "\nVerfügbares geld: " + money + "€");
     }
 
 
@@ -57,8 +67,8 @@ public class Student {
         return firstName;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
     public double getMoney() {
