@@ -11,11 +11,11 @@ public class Drink {
         this.price = price;
     }
 
-    public String getRandomDrinkName () {
+    public static String getRandomDrinkName () {
         return drinkName[(int) (drinkName.length * Math.random())];
     }
 
-    public double getRandomDrinkPrice () {
+    public static double getRandomDrinkPrice () {
         double drinkPrice = 2.5;
 
         double chance = Math.random();
@@ -30,7 +30,7 @@ public class Drink {
         return drinkPrice;
     }
 
-    public Drink createRandomDrink() {
+    public static Drink createRandomDrink() {
         String name = getRandomDrinkName();
         double price = getRandomDrinkPrice();
 
@@ -40,4 +40,20 @@ public class Drink {
         return new Drink(name, price);
     }
 
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
