@@ -18,9 +18,9 @@ public class Bar {
     }
 
 
-    public Bar createRandomBar () {
+    public static Bar createRandomBar () {
         String name = getRandomBarName();
-        System.out.println("Cool heute geht es also in die " + name +".\nNa dann los geht's");
+        System.out.println("\nCool heute geht es also in die " + name +".\nNa dann los geht's");
         return new Bar (name);
     }
 
